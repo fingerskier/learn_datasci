@@ -41,3 +41,15 @@ print(num_rels_by_id)
 sorted(num_rels_by_id, key=lambda(user_id, num_relatives): num_relatives, reverse=True)
 
 print(num_rels_by_id)
+
+def relative_of_relative_ids_bad(user):
+	# "roar" ~ relative of a relative
+	return [roar["id"]
+			for relative in user["relative"]
+			for roar in relative["relative"]]
+
+print(relative_of_relative_ids_bad(users[0]))
+
+print [relations["id"] for relative in users[0]["relative"]]
+print [relations["id"] for relative in users[1]["relative"]]
+print [relations["id"] for relative in users[2]["relative"]]
