@@ -8,31 +8,12 @@ const config = {
     leakyReluAlpha: 0.01   // supported for activation type 'leaky-relu'
 };
 
-// create a simple feed forward neural network with backpropagation
-const net = new brain.NeuralNetwork(config);
+var net = new brain.recurrent.LSTMTimeStep();
 
-const training_data = [
-    {input: [0, 0], output: [0]},
-    {input: [0, 1], output: [1]},
-    {input: [1, 0], output: [1]},
-    {input: [1, 1], output: [0]},
-    {input: [0, 0], output: [0]},
-    {input: [0, 1], output: [1]},
-    {input: [1, 0], output: [1]},
-    {input: [1, 1], output: [0]}
-]
+net.train([
+  [1, 2, 3]
+]);
 
-net.train(training_data)
+var output = net.run([1, 2]);  // 3
 
-let output = net.run([0, 0]);  // [0]
-console.log(output)
-
-output = net.run([0, 1]);      // [1]
-console.log(output)
-
-output = net.run([1, 0]);      // [1]
-console.log(output)
-
-output = net.run([1, 1]);      // [0]
-console.log(output)
-
+console.log(output, net.toJSON())
