@@ -1,0 +1,29 @@
+n0	w	n3	w	n6
+n1	w	n4	w	n7
+n2	w	n5	w	n8
+
+array[x,y,z]
+	x	layer #
+	y	id
+	z	dimension
+
+
+0,0,0	1,0,0	2,0,0
+
+
+
+net = array(n,n,n+1)
+
+
+array[?,?,0] is the neurons
+
+array w/ z > 0 are weight matrices
+
+for x = 1 to n {	// start at 1 because level 0 is the inputs
+	for y = 0 to n {
+		for z = 1 to n+1 {	// start at 1 because level 0 is the signal
+			// sig += in * wt
+			net[x,y,0] += net[x-1,y,0] * net[x,y,z]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "series",
+  "version": "1.0.0",
+  "description": "",
+  "main": "braniax.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "brain.js": "^1.5.1"
+  }
+}
