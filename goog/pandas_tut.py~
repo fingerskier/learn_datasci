@@ -1,0 +1,6 @@
+from __future__ import print_functions
+
+import pandas as pd
+
+pd.__version__
+
